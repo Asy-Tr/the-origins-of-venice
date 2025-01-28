@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table td, table td * {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+	<script>
+        const columns = ["row_nr", "page_nr", "area_code", "spatial_information", "data", "ownership", "fonte"];
+
+        const colors = {
+            "places (world)": "blue",
+            "places (venice)": "blue",
+            "places (peculiar)": "blue",
+            "spatial_features": "green",
+            "ownerships": "pink",
+            "persons (I)": "red",
+            "persons (II)": "red",
+            "family_relations": "purple",
+        }
+
+		async function load(filename) {
+			console.log(filename)
+			const data = await fetch(filename);
+			const rows = await data.json();
+
+            // create a table
+            const table = document.createElement("table");
+            document.body.appendChild(table);
+
+            // create a header row
+            const headerRow = document.createElement("tr");
+            table.appendChild(headerRow);
+            for (const key of columns) {
+                const th = document.createElement("th");
+                th.textContent = key;
+                headerRow.appendChild(th);
+            }
+
+            for (const row of rows) {
+                /*if (row["matches"]["spatial_information"].length > 0) {
+                    continue;
+                }*/
+
+                const tr = document.createElement("tr");
+                table.appendChild(tr);
+
+                for (const column of columns) {
+                    const td = document.createElement("td");
+
+                    if (column in row["matches"]) {
+                        const tokens = row[column];
+                        const tooltips = {};
+
+                        for (let i = 0; i < tokens.length; i++) {
+                            tooltips[i] = [];
+                        }
+
+                        for (const match of row["matches"][column]) {
+                            for (const tokenIndex of match["token_indices"]) {
+                                tooltips[tokenIndex].push(match);
+                            }
+                        }
+
+                        for (let i = 0; i < tokens.length; i++) {
+                            let outerSpan = document.createElement("span");
+                            td.appendChild(outerSpan);
+
+                            const matches = tooltips[i];
+                            let offset = (matches.length - 1) * 4 + 1;
+
+                            for (const match of matches) {
+                                const span = document.createElement("span");
+                                span.style.textDecoration = "underline";
+                                span.style.textDecorationColor = colors[match["entry_type"]];
+                                span.style.textUnderlineOffset = `${offset}px`;
+                                span.style.textDecorationThickness = "2px";
+                                outerSpan.appendChild(span);
+                                outerSpan = span;
+                                offset -= 4;
+                            }
+                            outerSpan.textContent = tokens[i];
+
+                            if (matches.length > 0) {
+                                outerSpan.title = tooltips[i].map(entry => entry["entry_type"] + ": " + entry["entry_name"]).join("\n");
+                                outerSpan.style.cursor = "pointer";
+                            }
+
+                            if (i < tokens.length - 1)
+                                td.appendChild(document.createTextNode(" "));
+                        }
+
+                    } else {
+						if (row[column] != null)
+							td.textContent = row[column] + "";
+                    }
+
+                    tr.appendChild(td);
+                }
+            }
+		}
+
+        async function loadFiles() {
+            const data = await fetch("files.json");
+            const files = await data.json();
+
+            for (const file of files) {
+                await load(file);
+            }
+        }
+
+		//load();
+        loadFiles();
+	</script>
+</body>
+</html>

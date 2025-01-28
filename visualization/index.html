@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map of Venice</title>
+    <link rel="stylesheet" href="../leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="../nouislider/nouislider.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Map of Venice</h1>
+    </header>
+    <div class="main-content">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul class="menu">
+                <!-- first level menu -->
+                <li>
+                    <label>
+                        <input type="radio" name="displayMode" value="ownership" checked>
+                        Based on Ownership
+                    </label>
+                    <label>
+                        <input type="radio" name="displayMode" value="frequency">
+                        Based on Frequency
+                    </label>
+                    <!-- second level menu -->
+                    <div class="submenu active" id="ownership-submenu">
+                        <h3>Select Ownership Type</h3>
+                        <select id="ownership-select" style="width: 100%; margin: 10px 0;">
+                            <option value="person">Person</option>
+                            <option value="place">Place</option>
+                        </select>
+                        <h3>Select Number You Would Like to Display</h3>
+                        <div id="ownership-display-count-slider" style="margin: 10px 0;"></div>
+                        <p>Current Selection: Top <span id="ownership-display-count">1</span></p>
+                        <button id="ownership-confirm" style="margin-top: 10px;">Confirm</button>
+                    </div>
+                    <div class="submenu" id="frequency-submenu">
+                        <h3>Select Item</h3>
+                        <select id="frequency-select" style="width: 100%; margin: 10px 0;">
+                            <option value="place">Name of Place in Venice</option>
+                            <option value="functionality">Functionality</option>
+                        </select>
+                        <h3>Select Number You Would Like to Display</h3>
+                        <div id="frequency-display-count-slider" style="margin: 10px 0;"></div>
+                        <p>Current Selection: Top <span id="frequency-display-count">1</span></p>
+                        <button id="frequency-confirm" style="margin-top: 10px;">Confirm</button>
+                    </div>
+                </li>
+                <li>
+                    <h3>Layers</h3>
+                    <input type="checkbox" id="layer1" checked>
+                    <label for="layer1">Base Map</label>
+                    <input type="checkbox" id="layer2" checked>
+                    <label for="layer2">Data Layer</label><br>
+
+                </li>
+            </ul>
+            <div class="timeline-container">
+                <h3>Time Range</h3>
+                <div id="timeline" style="margin: 10px 0;"></div>
+                <p>Selected Time: <span id="current-time">950</span></p>
+            </div>
+
+
+        </div>
+        <div id="map" style="flex: 1;"></div>
+    </div>
+
+
+</div>
+
+
+<script src="../leaflet/leaflet.js"></script>
+<script src="../nouislider/nouislider.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
