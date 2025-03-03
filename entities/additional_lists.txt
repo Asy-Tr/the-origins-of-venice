@@ -1,0 +1,81 @@
+lists["ownerships"] = {
+	"entries": {
+		"property": ["proprietas", "proprietate", "proprietatem", "proprietates", "proprium", "proprio", "proprietatum",
+					  "proprietati", "proprietatis", "proprietade", "proprietatibus", "proprietas"],
+		"possession": ["possessione", "possessio", "possessionem", "possessionibus", "possessiones",
+					   "possessionis", "possession", "possessioni"],
+		"community": ["comun", "comuna", "comuni", "comunes", "comunis", "comune", "comunem",
+					  "communem",  "communis", "communi"],
+		"public": ["publico", "publica", "publicis", "publicam", "publicum"],
+		"share": ["cooperto", "coopertam", "cooperte"],
+		"part": ["parte", "partes", "partis", "pars", "parti", "partem", "partibus", "partim"],
+		"division": ["divisione", "divisionem", "divisioni"],
+		"concession": ["concessum"],
+		"licence": ["licencia"],
+	}
+}
+
+lists["spatial_features"] = {
+	"entries": {
+		"way": ["via", "viam", "viis"],
+		"street": ["calle", "cale", "calem", "calli", "callicello", "callicella", "callem", "callis", "cali", "callibus",
+				   "porticalli"],
+		"land": ["terra", "terram", "terre", "terrarum", "terenum", "terreno", "terris"],
+		"territory": ["territorio", "territorii", "territorium", "teritorio", "terratorio"],
+		"bridge": ["pons", "ponte", "pontem", "pontium"],
+		"hut": ["casa", "case", "casam", "chase", "casarum", "chasa", "kasa", "kase"],
+		"shed": ["caseta"],
+		"house": ["domos", "domum", "domui", "domus", "domo", "domibus", "domorum"],
+		"small house": ["domuncula"],
+		"church": ["ecclesiam", "ecclesie", "ecclesia", "aecclesiam"],
+		"church2": ["chiesa"],
+		"basilica": ["basilica", "basilicam"],
+		"monastry": ["monasterium", "monastero", "monasterio", "monasterii", "monasteri"],
+		"region": ["contrata", "contratam"], # https://en.wiktionary.org/wiki/Reconstruction:Latin/contrata
+		"church tower": ["campanile", "campanili", "campanilis", "campanil"],
+		"place?": ["locum", "loco"],
+		"point?": ["punciam", "puncte", "poncte", "punctam", "punctum", "puncta"],
+		"water": ["aqua", "aquis"],
+		"river": ["rivum", "rivo", "rivus"],
+		"canal": ["canali", "canalem", "canale", "canalis", "kanal"],
+		"lake": ["lacu", "lacus", "laci", "lacum"],
+		"dam": ["agger", "aggerem", "aggere"],
+		"island": ["insula"],
+		"cavern": ["cavana", "cavanna", "cavanam"],
+		"oven": ["furno"],
+		"pool": ["piscina", "pissina", "pisina", "piscinam", "pisscina", "pisinam"],
+		"junction": ["junctorium"],
+		"chamber": ["camera", "cameram", "cella", "cellam"],
+		"rooms": ["mansionem", "mansiones"],
+		"wall": ["murus", "muro", "muri"],
+		"field": ["campo", "campum", "campedello"],
+		"graveyard": ["cimiterio"],
+		"wineyard": ["vinea", "vineam"],
+		"wine cellar": ["vinuculam"],
+		"market": ["mercatum"],
+		"courtyard": ["curte", "curtem"],
+		"mill": ["molendinum", "molendina", "molendinorum"],
+		"fish pond?": ["piscariola"],
+		"garden?": ["horto", "orto", "ortum", "orti", "ortis", "ortu", "ortus"],
+		"school": ["scolam"],
+		"hospital": ["ospedale", "ospitale", "hospitalem", "hospitali", "hospitale"],
+		"hotel": ["albergo", "albergi", "albergum"],
+		"workshop": ["fabrica", "fabricam"],
+		"swamp": ["palude", "paludem", "paludes", "paludis"],
+		# esse?
+	}
+}
+
+
+lists["family_relations"] = {
+	"entries": {
+		"brother": ["fratelli", "fratello"],
+		"sister": ["sorelle", "sorella"],
+		"son": ["filio"],
+		"daughter": ["filia"],
+		"child": ["q."], # "quondam" = son/daughter of
+		"widow": ["vedova"],
+		"wife": ["moglie"],
+		"grandchild": ["nipote"]
+	}
+}

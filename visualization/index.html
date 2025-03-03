@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map of Venice</title>
+    <link rel="stylesheet" href="../leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="../nouislider/nouislider.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Map of Venice</h1>
+    </header>
+    <div class="main-content">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="base" value="ownership" checked>
+                    Based on Ownership
+                </label>
+                <label>
+                    <input type="radio" name="base" value="frequency">
+                    Based on Frequency
+                </label>
+            </div>
+            <div class="submenu active" id="ownership-submenu">
+                <h3>Select Ownership Type</h3>
+                <select id="ownership-select">
+                    <option value="person">Person</option>
+                    <option value="place">Place</option>
+                </select>
+            </div>
+            <div class="submenu" id="frequency-submenu">
+                <h3>Select Item</h3>
+                <select id="frequency-select">
+                    <option value="place">Name of Place in Venice</option>
+                    <option value="functionality">Functionality of Place</option>
+                </select>
+            </div>
+            <div class="slider-container">
+                <h3>Select Number to Display</h3>
+                <div id="display-number-slider"></div>
+                <p>Current Selection: Top <span id="display-number">1</span></p>
+                <h3>Select Time Range</h3>
+                <div id="timeline-slider"></div>
+                <p>Selected Time: <span id="current-time-range">950</span></p>
+            </div>
+            <button id="confirm">Confirm</button>
+            <div class="layers-container">
+                <h3>Layers</h3>
+                <input type="checkbox" id="layer1" checked>
+                <label for="layer1">Base Map</label>
+                <input type="checkbox" id="layer2" checked>
+                <label for="layer2">Data Layer</label>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+</div>
+<script src="../leaflet/leaflet.js"></script>
+<script src="../nouislider/nouislider.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
